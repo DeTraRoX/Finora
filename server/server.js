@@ -60,10 +60,20 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/admin', adminRoutes);
 
-// Fallbacks to client build or welcome route
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to Finora API!' });
-});
+const path = require('path');
+
+// Serve static assets in production (Unified express+react hosting)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'));
+  });
+} else {
+  app.get('/', (req, res) => {
+    res.json({ message: 'Welcome to Finora API!' });
+  });
+}
 
 // Mount error middlewares
 app.use(notFound);
