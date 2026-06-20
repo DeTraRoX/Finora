@@ -15,7 +15,8 @@ export const connectSocket = (token, onNotificationReceived) => {
   }
 
   // Connect to the base origin (proxied during dev, direct in production)
-  socket = io(window.location.origin, {
+  const socketUrl = import.meta.env.VITE_SOCKET_URL || window.location.origin;
+  socket = io(socketUrl, {
     auth: { token },
     // Use websocket transport predominantly
     transports: ['websocket'],
