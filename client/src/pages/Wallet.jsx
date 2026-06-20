@@ -14,7 +14,7 @@ import confetti from 'canvas-confetti';
 const Wallet = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { balance, currency, loading: walletLoading, orderData, paymentSuccess } = useSelector(
+  const { balance, currency, loading: walletLoading, orderData, paymentSuccess, error } = useSelector(
     (state) => state.wallet
   );
   const { history: transactions, loading: txnLoading } = useSelector((state) => state.transaction);
@@ -123,6 +123,13 @@ const Wallet = () => {
           Fund your digital wallet and trace loading activities.
         </p>
       </div>
+
+      {error && (
+        <div className="flex items-center gap-2.5 p-4 rounded-xl bg-accent-error/10 border border-accent-error/20 text-accent-error text-xs font-semibold">
+          <XCircle className="h-4.5 w-4.5 shrink-0 animate-pulse" />
+          <span>{error}</span>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         

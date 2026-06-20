@@ -51,7 +51,7 @@ const updateProfile = async (req, res, next) => {
   const { name, phone } = req.body;
 
   try {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).select('+transactionPin');
     if (!user) {
       res.status(404);
       throw new Error('User not found');

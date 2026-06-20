@@ -66,7 +66,7 @@ const verifyOtp = async (req, res, next) => {
   const { email, otp } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select('+transactionPin');
 
     if (!user) {
       res.status(404);
@@ -182,7 +182,7 @@ const loginUser = async (req, res, next) => {
 // @access  Private
 const getMe = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).select('+transactionPin');
     if (!user) {
       res.status(404);
       throw new Error('User not found');

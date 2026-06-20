@@ -295,8 +295,6 @@ const Profile = () => {
                   includeMargin={false}
                   imageSettings={{
                     src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ccircle cx='40' cy='50' r='20' fill='white' opacity='0.3'/%3E%3Ccircle cx='60' cy='50' r='20' fill='white'/%3E%3C/svg%3E",
-                    x: null,
-                    y: null,
                     height: 36,
                     width: 36,
                     excavate: true,
