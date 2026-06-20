@@ -38,6 +38,12 @@ api.interceptors.response.use(
   (error) => {
     const originalRequest = error.config;
     
+    // Enhance message for 404 errors to help debug deployment configurations
+    if (error.response && error.response.status === 404) {
+      const fullUrl = `${error.config?.baseURL || ''}${error.config?.url || ''}`;
+      error.message = `404 Not Found: API Request to "${fullUrl}" failed. Please verify your Render VITE_API_URL settings.`;
+    }
+    
     // If blocked or unauthorized, clear cache/token
     if (error.response && error.response.status === 401) {
       localStorage.removeItem('token');

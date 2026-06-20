@@ -281,7 +281,7 @@ const Bills = () => {
                   className="text-center font-mono tracking-widest text-lg"
                 />
 
-                {!user.hasPin && (
+                {!user?.hasPin && (
                   <div className="p-3 rounded-xl bg-accent-warning/10 border border-accent-warning/20 text-[11px] text-accent-warning font-medium">
                     You haven't set a transaction PIN yet. Please configure it in your Profile first.
                   </div>
@@ -292,7 +292,7 @@ const Bills = () => {
                   variant="primary"
                   fullWidth
                   loading={loading}
-                  disabled={!user.hasPin}
+                  disabled={!user?.hasPin}
                   icon={Receipt}
                   className="mt-4"
                 >

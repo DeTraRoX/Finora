@@ -34,7 +34,7 @@ import {
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { balance, currency, loading: walletLoading } = useSelector((state) => state.wallet);
+  const { balance, currency, loading: walletLoading, error: walletError } = useSelector((state) => state.wallet);
   const { history: transactions, loading: txnLoading } = useSelector((state) => state.transaction);
   
   const [showBalance, setShowBalance] = useState(true);
@@ -122,6 +122,12 @@ const Dashboard = () => {
         )}
       </div>
 
+      {walletError && (
+        <div className="p-4 rounded-xl bg-accent-error/10 border border-accent-error/20 text-accent-error text-xs font-semibold">
+          {walletError}
+        </div>
+      )}
+
       {/* Grid Dashboard row 1: Wallet Balance & Quick Services */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
@@ -160,7 +166,7 @@ const Dashboard = () => {
             </div>
 
             <div className="flex justify-between items-center pt-4 border-t border-white/5">
-              <span className="text-[10px] font-mono tracking-widest text-dark-500">{user?.phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1-***-$3')}</span>
+              <span className="text-[10px] font-mono tracking-widest text-dark-500">{user?.phone?.replace(/(\d{3})(\d{3})(\d{4})/, '$1-***-$3') || ''}</span>
               <Link to="/wallet">
                 <button className="text-[11px] font-bold text-primary-400 hover:text-primary-300 flex items-center gap-1">
                   Add Funds <PlusCircle className="h-3.5 w-3.5" />
@@ -304,7 +310,7 @@ const Dashboard = () => {
                 <div className="space-y-4">
                   {transactions.slice(0, 4).map((txn) => {
                     const isCredit =
-                      txn.receiverId && txn.receiverId._id.toString() === user._id;
+                      txn.receiverId && txn.receiverId._id.toString() === user?._id;
                     return (
                       <div
                         key={txn.transactionId}

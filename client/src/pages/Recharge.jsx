@@ -237,7 +237,7 @@ const Recharge = () => {
                 />
 
                 {/* PIN Guard Caution */}
-                {!user.hasPin && (
+                {!user?.hasPin && (
                   <div className="p-3 rounded-xl bg-accent-warning/10 border border-accent-warning/20 text-[11px] text-accent-warning font-medium">
                     You haven't set a transaction PIN yet. Please configure it in your Profile first.
                   </div>
@@ -248,7 +248,7 @@ const Recharge = () => {
                   variant="primary"
                   fullWidth
                   loading={loading}
-                  disabled={!user.hasPin}
+                  disabled={!user?.hasPin}
                   icon={Smartphone}
                   className="mt-4"
                 >

@@ -348,8 +348,8 @@ const SendMoney = () => {
                   className="text-center font-mono tracking-widest text-lg"
                 />
 
-                {/* Info Tip about Pin */}
-                {!currentUser.hasPin && (
+                 {/* Info Tip about Pin */}
+                {!currentUser?.hasPin && (
                   <div className="p-3 rounded-xl bg-accent-warning/10 border border-accent-warning/20 text-[11px] text-accent-warning font-medium">
                     You haven't set a transaction PIN yet. Please navigate to Profile page to configure it first.
                   </div>
@@ -369,7 +369,7 @@ const SendMoney = () => {
                     variant="primary"
                     fullWidth
                     loading={txnLoading}
-                    disabled={!currentUser.hasPin}
+                    disabled={!currentUser?.hasPin}
                     icon={Send}
                   >
                     Send Payment

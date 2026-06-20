@@ -172,7 +172,7 @@ const Transactions = () => {
             
             {/* Rows */}
             {transactions.map((txn) => {
-              const isCredit = txn.receiverId && txn.receiverId._id.toString() === user._id;
+              const isCredit = txn.receiverId && txn.receiverId._id.toString() === user?._id;
               return (
                 <div
                   key={txn.transactionId}
@@ -294,7 +294,7 @@ const Transactions = () => {
                 <div className="flex justify-between items-start pt-2 text-xs">
                   <span className="text-dark-400 font-semibold uppercase tracking-wider">Paid From</span>
                   <div className="text-right">
-                    <span className="font-bold text-white block">{currentTransaction.senderId._id === user._id ? 'My Wallet' : currentTransaction.senderId.name}</span>
+                    <span className="font-bold text-white block">{currentTransaction.senderId._id === user?._id ? 'My Wallet' : currentTransaction.senderId.name}</span>
                     <span className="text-[10px] text-dark-500 block mt-0.5">{currentTransaction.senderId.phone}</span>
                   </div>
                 </div>
@@ -305,7 +305,7 @@ const Transactions = () => {
                 <div className="flex justify-between items-start pt-4 text-xs">
                   <span className="text-dark-400 font-semibold uppercase tracking-wider">Paid To</span>
                   <div className="text-right">
-                    <span className="font-bold text-white block">{currentTransaction.receiverId._id === user._id ? 'My Wallet' : currentTransaction.receiverId.name}</span>
+                    <span className="font-bold text-white block">{currentTransaction.receiverId._id === user?._id ? 'My Wallet' : currentTransaction.receiverId.name}</span>
                     <span className="text-[10px] text-dark-500 block mt-0.5">{currentTransaction.receiverId.phone}</span>
                   </div>
                 </div>
