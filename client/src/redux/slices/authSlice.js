@@ -88,7 +88,7 @@ export const changePin = createAsyncThunk('auth/changePin', async (pinData, thun
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: false,
-  loading: true,
+  loading: !!localStorage.getItem('token'),
   user: null,
   error: null,
   otpSent: false,
