@@ -76,8 +76,8 @@ const LandingPage = () => {
       <nav className="glass-panel border-b border-dark-900 bg-dark-950/80 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-primary-600 to-violet-500 flex items-center justify-center">
-              <span className="text-white font-extrabold text-sm font-sans">F</span>
+            <div className="h-8 w-8 rounded-lg overflow-hidden flex items-center justify-center bg-dark-900 border border-dark-850">
+              <img src="/logo.png" alt="Finora Logo" className="h-full w-full object-cover scale-[1.8] translate-y-[-15%]" />
             </div>
             <span className="text-xl font-extrabold tracking-tight font-sans text-white">
               Finora

@@ -48,8 +48,8 @@ const Navbar = ({ onMenuToggle }) => {
           </button>
           
           <div className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-primary-600 to-violet-500 flex items-center justify-center shadow-lg shadow-primary-500/20">
-              <span className="text-white font-extrabold text-lg font-sans">F</span>
+            <div className="h-9 w-9 rounded-xl overflow-hidden flex items-center justify-center shadow-lg shadow-primary-500/20 bg-dark-900 border border-dark-850">
+              <img src="/logo.png" alt="Finora Logo" className="h-full w-full object-cover scale-[1.8] translate-y-[-15%]" />
             </div>
             <span className="text-2xl font-extrabold tracking-tight font-sans bg-gradient-to-r from-white via-dark-100 to-primary-400 bg-clip-text text-transparent">
               Finora

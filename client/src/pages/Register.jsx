@@ -102,8 +102,8 @@ const Register = () => {
         
         {/* Brand Header */}
         <div className="flex flex-col items-center mb-8">
-          <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-primary-600 to-violet-500 flex items-center justify-center shadow-lg shadow-primary-500/20 mb-3">
-            <span className="text-white font-extrabold text-xl font-sans">F</span>
+          <div className="h-10 w-10 rounded-xl overflow-hidden flex items-center justify-center shadow-lg shadow-primary-500/20 mb-3 bg-dark-900 border border-dark-850">
+            <img src="/logo.png" alt="Finora Logo" className="h-full w-full object-cover scale-[1.8] translate-y-[-15%]" />
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight font-sans text-white">
             {otpSent ? 'OTP Verification' : 'Create Account'}
